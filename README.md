@@ -1,1 +1,1 @@
-# Mastering-Spring-Cloud
+# Mastering-Spring-Cloud by Packt Publishing
