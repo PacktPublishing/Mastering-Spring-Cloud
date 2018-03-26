@@ -1,0 +1,40 @@
+spring:  
+  application:
+    name: order-service
+
+logging:
+  file: logs/order.log
+  level:
+#    com.netflix: DEBUG
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+  pattern:
+#    console: "%d{HH:mm:ss.SSS} %-5level %msg%n"
+    file: "%d{HH:mm:ss.SSS} %-5level %msg%n"
+    
+---
+spring:
+  profiles: zone1
+eureka:
+  instance:
+    metadataMap:
+      zone: zone1
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      preferSameZoneEureka: true
+server:  
+  port: ${PORT:8090}
+
+---
+spring:
+  profiles: zone2
+eureka:
+  instance:
+    metadataMap:
+      zone: zone2
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      preferSameZoneEureka: true
+server:  
+  port: ${PORT:9090}

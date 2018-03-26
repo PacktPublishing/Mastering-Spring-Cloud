@@ -1,0 +1,11 @@
+spring:  
+  application:
+    name: product-service
+    
+server:
+  port: ${PORT:8093}
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka/} 
