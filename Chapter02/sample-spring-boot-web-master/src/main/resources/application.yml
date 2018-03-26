@@ -1,0 +1,18 @@
+server:  
+  port: ${port:2222}
+
+spring:  
+  application:
+    name: first-service
+    
+logging:
+  pattern:
+    console: "%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n"
+    file: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+#  level:
+#    org.springframework.web: DEBUG
+  file: app.log
+  
+management:
+  security:
+    enabled: false
