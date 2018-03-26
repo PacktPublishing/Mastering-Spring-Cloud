@@ -1,0 +1,26 @@
+spring:
+  rabbitmq:
+    host: 192.168.99.100
+    port: 5672
+    username: guest
+    password: guest
+
+eureka:
+  instance:
+    metadataMap:
+      zone: zone1
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+server:  
+  port: ${PORT:8081}
+
+management:
+  security:
+    enabled: false
+    
+sample:
+  string:
+    property: Client Application
+  int:
+    property: 3

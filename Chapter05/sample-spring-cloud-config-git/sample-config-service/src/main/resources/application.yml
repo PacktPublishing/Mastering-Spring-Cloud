@@ -1,0 +1,14 @@
+server:  
+  port: ${PORT:8889}
+    
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/piomin/sample-spring-cloud-config-repo.git
+          username: ${github.username}
+          password: ${github.password}
+          cloneOnStart: true

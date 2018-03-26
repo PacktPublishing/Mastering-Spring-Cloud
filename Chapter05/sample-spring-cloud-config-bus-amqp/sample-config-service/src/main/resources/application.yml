@@ -1,0 +1,26 @@
+server:  
+  port: ${PORT:8889}
+    
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        monitor:
+          github:
+            enabled: true
+        git:
+          uri: https://github.com/piomin/sample-spring-cloud-config-repo.git
+          username: ${github.username}
+          password: ${github.password}
+          cloneOnStart: true
+  rabbitmq:
+    host: 192.168.99.100
+    port: 5672
+    username: guest
+    password: guest
+    
+management:
+  security:
+    enabled: false

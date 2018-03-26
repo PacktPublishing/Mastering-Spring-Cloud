@@ -1,0 +1,26 @@
+server:  
+  port: ${PORT:8889}
+    
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        monitor:
+          gitlab:
+            enabled: true
+        git:
+          uri: http://192.168.99.100:10080/root/sample-spring-cloud-config-repo.git
+          username: root
+          password: Piot_123
+          cloneOnStart: true
+  rabbitmq:
+    host: 192.168.99.100
+    port: 5672
+    username: guest
+    password: guest
+    
+management:
+  security:
+    enabled: false
