@@ -1,0 +1,42 @@
+spring:  
+  application:
+    name: client-service
+
+---
+spring:
+  profiles: zone1
+eureka:
+  instance:
+    metadataMap:
+      zone: zone1
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+server:  
+  port: ${PORT:9100}
+
+---
+spring:
+  profiles: zone2
+eureka:
+  instance:
+    metadataMap:
+      zone: zone2
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+server:  
+  port: ${PORT:9110}
+  
+---
+spring:
+  profiles: zone3
+eureka:
+  instance:
+    metadataMap:
+      zone: zone3
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+server:  
+  port: ${PORT:9120}

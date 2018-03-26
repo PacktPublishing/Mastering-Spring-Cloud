@@ -1,0 +1,59 @@
+spring:  
+  application:
+    name: gateway-service
+
+zuul:
+  prefix: /api
+  routes:
+    client: 
+      path: /client/**
+      serviceId: client-service        
+
+ribbon:
+  eureka:
+    enabled: true
+
+---
+spring:
+  profiles: zone1
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    registerWithEureka: false
+    preferSameZoneEureka: true
+  instance:
+    metadataMap:
+      zone: zone1
+server:  
+  port: ${PORT:8765}
+
+---
+spring:
+  profiles: zone2
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8762/eureka/
+    registerWithEureka: false
+    preferSameZoneEureka: true
+  instance:
+    metadataMap:
+      zone: zone2
+server:  
+  port: ${PORT:8766}
+
+---
+spring:
+  profiles: zone3
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8763/eureka/
+    registerWithEureka: false
+    preferSameZoneEureka: true
+  instance:
+    metadataMap:
+      zone: zone3
+server:  
+  port: ${PORT:8767}
