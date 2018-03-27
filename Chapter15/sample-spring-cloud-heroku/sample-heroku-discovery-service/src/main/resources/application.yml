@@ -1,0 +1,10 @@
+spring:  
+  application:
+    name: discovery-service
+      
+eureka:
+  instance:
+    hostname: piomin-discovery-service.herokuapp.com
+  client:
+    registerWithEureka: false
+    fetchRegistry: false

@@ -1,0 +1,10 @@
+spring:  
+  application:
+    name: product-service
+  data:
+    mongodb:
+      uri: ${vcap.services.mlab.credentials.uri}
+security:
+  user:
+    name: piomin
+    password: 123456

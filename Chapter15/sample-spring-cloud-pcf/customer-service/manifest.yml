@@ -1,0 +1,6 @@
+---
+applications:
+- name: customer-service
+  memory: 350M
+  random-route: true
+  path: target/customer-service-1.0-SNAPSHOT.jar

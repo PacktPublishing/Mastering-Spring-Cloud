@@ -1,0 +1,6 @@
+---
+applications:
+- name: account-service
+  memory: 300M
+  random-route: true
+  path: target/account-service-1.0-SNAPSHOT.jar

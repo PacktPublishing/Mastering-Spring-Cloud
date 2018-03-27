@@ -1,0 +1,6 @@
+---
+applications:
+- name: order-service
+  memory: 350M
+  random-route: true
+  path: target/order-service-1.0-SNAPSHOT.jar

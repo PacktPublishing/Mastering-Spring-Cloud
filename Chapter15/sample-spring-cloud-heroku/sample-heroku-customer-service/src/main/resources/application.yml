@@ -1,0 +1,15 @@
+spring:  
+  application:
+    name: customer-service
+  data:
+    mongodb:
+      uri: ${MONGODB_URI}
+          
+eureka:
+  instance:
+    hostname: ${HEROKU_APP_NAME}.herokuapp.com
+    nonSecurePort: 80
+  client:
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://piomin-discovery-service.herokuapp.com/eureka

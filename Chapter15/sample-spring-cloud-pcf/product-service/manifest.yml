@@ -1,0 +1,6 @@
+---
+applications:
+- name: product-service
+  memory: 300M
+  random-route: true
+  path: target/product-service-1.0-SNAPSHOT.jar
