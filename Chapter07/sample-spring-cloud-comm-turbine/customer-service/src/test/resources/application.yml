@@ -1,0 +1,9 @@
+server:
+  port: 8092
+  
+account-service:
+  ribbon:
+    eureka:
+      enabled: false
+    listOfServers: account-service:8091, account-service:9091
+  

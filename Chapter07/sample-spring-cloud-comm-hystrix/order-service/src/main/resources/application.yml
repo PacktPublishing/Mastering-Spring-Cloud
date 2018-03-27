@@ -1,0 +1,19 @@
+server:
+  port: 8090
+  
+account-service:
+  ribbon:
+    eureka:
+      enabled: false
+    listOfServers: localhost:8091,localhost:9091
+customer-service:
+  ribbon:
+    eureka:
+      enabled: false
+    listOfServers: localhost:8092
+product-service:
+  ribbon:
+    eureka:
+      enabled: false
+    listOfServers: localhost:8093,localhost:9093
+  

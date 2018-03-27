@@ -1,0 +1,12 @@
+spring:  
+  application:
+    name: hystrix-dashboard
+    
+server:
+  port: ${PORT:9000}
+
+turbine:
+#  aggregator:
+#    clusterConfig: ORDER-SERVICE,CUSTOMER-SERVICE
+  appConfig: order-service,customer-service
+  clusterNameExpression: "'default'"
