@@ -1,0 +1,30 @@
+spring:  
+  application:
+    name: account-service
+  rabbitmq:
+    host: 192.168.99.100
+    port: 5672
+  cloud:  
+    stream:
+      bindings:
+        output:
+          destination: orders-in
+        input:
+          destination: orders-out
+      rabbit:
+        bindings:
+          output:
+            producer:
+              exchangeType: direct
+              routingKeyExpression: '"#"'
+          input:
+            consumer:
+              exchangeType: direct
+
+server:  
+  port: ${PORT:8091}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

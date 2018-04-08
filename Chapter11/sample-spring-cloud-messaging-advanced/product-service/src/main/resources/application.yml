@@ -1,0 +1,50 @@
+spring:  
+  application:
+    name: product-service
+  rabbitmq:
+    host: 192.168.99.100
+    port: 5672
+  cloud:  
+    stream:
+      bindings:
+        output:
+          destination: orders-in
+        input:
+          consumer:
+            partitioned: true
+          destination: orders-out
+          group: product
+      rabbit:
+        bindings:
+          output:
+            producer:
+              exchangeType: direct
+              routingKeyExpression: '"#"'
+                     
+server:  
+  port: ${PORT:8093}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      
+---
+spring:
+  profiles: instance1
+  cloud:
+    stream:
+      instanceCount: 2
+      instanceIndex: 0
+server:  
+  port: ${PORT:8093}  
+
+---
+spring:
+  profiles: instance2
+  cloud:
+    stream:
+      instanceCount: 2
+      instanceIndex: 1
+server:  
+  port: ${PORT:9093} 
