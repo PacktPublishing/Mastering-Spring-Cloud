@@ -1,0 +1,6 @@
+spring:  
+  application:
+    name: customer-service
+  cloud:
+    zookeeper:
+      connect-string: 192.168.99.100:2181

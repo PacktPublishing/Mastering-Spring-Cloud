@@ -1,0 +1,23 @@
+spring:  
+  application:
+    name: gateway-service
+    
+zuul:
+  prefix: /api
+  routes:
+    account-service:
+      path: /account/**
+    customer-service:
+      path: /customer/**
+    order-service:
+      path: /order/**
+    product-service:
+      path: /product/**
+
+logging:
+  level:
+    com.netflix: DEBUG
+    
+management:
+  security:
+    enabled: false

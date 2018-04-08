@@ -1,0 +1,23 @@
+spring:  
+  application:
+    name: account-service
+  cloud:
+    consul:
+      host: 192.168.99.100
+      port: 8500
+      
+logging:
+  level:
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+    
+---
+spring:
+  profiles: zone1
+server:  
+  port: ${PORT:8091}
+
+---
+spring:
+  profiles: zone2
+server:  
+  port: ${PORT:9091}

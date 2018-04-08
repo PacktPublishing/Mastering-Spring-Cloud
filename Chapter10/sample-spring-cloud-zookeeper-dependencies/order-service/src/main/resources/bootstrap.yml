@@ -1,0 +1,38 @@
+spring:  
+  application:
+    name: order-service
+  cloud:
+    zookeeper:
+      connect-string: 192.168.99.100:2181
+      dependency:
+        resttemplate:
+          enabled: false
+      dependencies:
+        account:
+          path: account-service
+          loadBalancerType: ROUND_ROBIN
+          required: true
+        customer:
+          path: customer-service
+          loadBalancerType: ROUND_ROBIN
+          required: true
+        product:
+          path: product-service
+          loadBalancerType: ROUND_ROBIN
+          required: true
+      
+logging:
+  level:
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+    
+---
+spring:
+  profiles: zone1
+server:  
+  port: ${PORT:8090}
+
+---
+spring:
+  profiles: zone2
+server:  
+  port: ${PORT:9090}

@@ -1,0 +1,19 @@
+spring:  
+  application:
+    name: product-service
+
+logging:
+  level:
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+       
+---
+spring:
+  profiles: zone1
+server:  
+  port: ${PORT:8093}
+
+---
+spring:
+  profiles: zone2
+server:  
+  port: ${PORT:9093}

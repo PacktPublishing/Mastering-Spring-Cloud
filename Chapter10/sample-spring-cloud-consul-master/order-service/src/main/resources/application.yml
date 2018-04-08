@@ -1,0 +1,24 @@
+spring:  
+  application:
+    name: order-service
+
+logging:
+  file: logs/order.log
+  level:
+#    com.netflix: DEBUG
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+  pattern:
+#    console: "%d{HH:mm:ss.SSS} %-5level %msg%n"
+    file: "%d{HH:mm:ss.SSS} %-5level %msg%n"
+    
+---
+spring:
+  profiles: zone1
+server:  
+  port: ${PORT:8090}
+
+---
+spring:
+  profiles: zone2
+server:  
+  port: ${PORT:9090}

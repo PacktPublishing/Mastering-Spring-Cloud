@@ -1,0 +1,30 @@
+spring:  
+  application:
+    name: account-service
+  cloud:
+    zookeeper:
+      connect-string: 192.168.99.100:2181
+      
+logging:
+  level:
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+    
+---
+spring:
+  profiles: zone1
+  cloud:
+    consul:
+      discovery:
+        instanceZone: zone1
+server:  
+  port: ${PORT:8091}
+
+---
+spring:
+  profiles: zone2
+  cloud:
+    consul:
+      discovery:
+        instanceZone: zone2
+server:  
+  port: ${PORT:9091}
