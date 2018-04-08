@@ -1,0 +1,7 @@
+spring:  
+  application:
+    name: account-service
+  cloud:
+    config:
+      failFast: true
+      uri: https://localhost:8888

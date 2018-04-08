@@ -1,0 +1,27 @@
+spring:  
+  application:
+    name: account-service
+
+server:  
+  port: ${PORT:8091}
+  ssl:
+    enabled: true
+    key-store: classpath:account.jks
+    key-store-password: 123456
+    key-alias: account
+    
+security:
+  require-ssl: true
+  
+eureka:
+  instance:
+    nonSecurePortEnabled: false
+    securePortEnabled: true
+    securePort: ${PORT:8091}
+    statusPageUrl: https://localhost:${eureka.instance.securePort}/info
+    healthCheckUrl: https://localhost:${eureka.instance.securePort}/health
+    homePageUrl: https://localhost:${eureka.instance.securePort}
+  client:
+    securePortEnabled: true
+    serviceUrl:
+      defaultZone: https://localhost:8761/eureka/

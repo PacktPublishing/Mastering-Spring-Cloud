@@ -1,0 +1,18 @@
+server:  
+  port: ${PORT:8888}
+    
+spring:
+  application:
+    name: config-service
+  cloud:
+    config:
+      server:
+        encrypt:
+          enabled: false
+  
+encrypt:
+  keyStore:
+    location: classpath:/discovery.jks
+    password: 123456
+    alias: discovery
+    secret: 123456

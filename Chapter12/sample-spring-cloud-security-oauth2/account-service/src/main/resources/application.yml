@@ -1,0 +1,43 @@
+spring:  
+  application:
+    name: account-service
+
+server:  
+  port: ${PORT:8091}
+  session:
+    cookie:
+      name: UISESSION
+#  ssl:
+#    enabled: true
+#    key-store: classpath:account.jks
+#    key-store-password: 123456
+#    key-alias: account
+  
+eureka:
+#  instance:
+#    nonSecurePortEnabled: false
+#    securePortEnabled: true
+#    securePort: ${PORT:8091}
+#    statusPageUrl: https://localhost:${eureka.instance.securePort}/info
+#    healthCheckUrl: https://localhost:${eureka.instance.securePort}/health
+#    homePageUrl: https://localhost:${eureka.instance.securePort}
+  client:
+    securePortEnabled: true
+    serviceUrl:
+      defaultZone: https://localhost:8761/eureka/
+
+logging:
+  level:
+    org.springframework.security: debug
+          
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      clientId: piotr.minkowski
+      clientSecret: 123456
+      accessTokenUri: http://localhost:9999/oauth/token
+      userAuthorizationUri: http://localhost:9999/oauth/authorize
+    resource:
+      userInfoUri: http://localhost:9999/user

@@ -1,0 +1,33 @@
+spring:  
+  application:
+    name: discovery-service
+
+server:  
+  port: ${PORT:8761}
+  ssl:
+    enabled: true
+    client-auth: need
+    key-store: classpath:discovery.jks
+    key-store-password: 123456
+    trust-store: classpath:discovery.jks
+    trust-store-password: 123456
+    key-alias: discovery
+    
+security:
+  require-ssl: true
+        
+eureka:
+  instance:
+    hostname: localhost
+    securePort: ${server.port}
+    securePortEnabled: true  
+    nonSecurePortEnabled: false 
+    secureVirtualHostName: ${spring.application.name}
+    homePageUrl: https://${eureka.instance.hostname}:${server.port}/
+    statusPageUrl: https://${eureka.instance.hostname}:${server.port}/admin/info
+    metadataMap:
+      hostname : ${eureka.instance.hostname}
+      securePort: ${server.port}
+  client:
+    registerWithEureka: false
+    fetchRegistry: false

@@ -1,0 +1,27 @@
+spring:  
+  application:
+    name: order-service
+
+server:  
+  port: ${PORT:8090}
+  ssl:
+    enabled: true
+    key-store: classpath:order.jks
+    key-store-password: 123456
+    key-alias: order
+    
+security:
+  require-ssl: true
+  
+eureka:
+  instance:
+    nonSecurePortEnabled: false
+    securePortEnabled: true
+    securePort: ${PORT:8090}
+    statusPageUrl: https://localhost:${eureka.instance.securePort}/info
+    healthCheckUrl: https://localhost:${eureka.instance.securePort}/health
+    homePageUrl: https://localhost:${eureka.instance.securePort}
+  client:
+    securePortEnabled: true
+    serviceUrl:
+      defaultZone: https://localhost:8761/eureka/

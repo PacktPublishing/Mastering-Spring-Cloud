@@ -1,0 +1,22 @@
+spring:  
+  application:
+    name: auth-service
+
+server:  
+  port: ${PORT:9999}
+
+security:
+  basic:
+    enabled: false
+#  user:
+#    name: root
+#    password: password
+#  oauth2:
+#    client:
+#      client-id: piotr.minkowski
+#      client-secret: 123456
+#      scope: read
+
+logging:
+  level:
+    org.springframework.security: debug
