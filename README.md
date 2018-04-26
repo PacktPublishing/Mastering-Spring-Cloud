@@ -18,11 +18,11 @@ The code will look like the following:
 
 In order to successfully read through this book and work out all the code samples, we
 expect readers to fulfill the following requirements:
-*An active internet connection
-*Java 8+
-*Docker
-*Maven
-*Git client
+**An active internet connection
+**Java 8+
+**Docker
+**Maven
+**Git client
 
 ## Related Products
 * [Spring Security - Third Edition](https://www.packtpub.com/application-development/spring-security-third-edition?utm_source=github&utm_medium=repository&utm_campaign=9781787129511)
